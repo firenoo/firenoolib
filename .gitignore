@@ -1,0 +1,13 @@
+#compiler
+compile.bat
+*.jar
+sources.txt
+
+#prod
+/out/**
+/module_out/**
+.class
+/out-jars/**
+
+#VSCode
+/.vscode/**
