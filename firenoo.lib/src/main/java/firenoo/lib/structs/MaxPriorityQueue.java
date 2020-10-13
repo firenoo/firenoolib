@@ -30,6 +30,14 @@ public class MaxPriorityQueue<E> {
         return !isEmpty() ? this.entries[1].obj : null;
     }
 
+    public int peekPriority() {
+        if(!isEmpty()) {
+            return this.entries[1].priority;
+        }
+        throw new IllegalStateException("P. Queue is empty.");
+
+    }
+
     public E dequeue() {
         QueueObject<E> q_obj = entries[1];
         if(q_obj != null && currentEntry > 1) {
@@ -69,6 +77,15 @@ public class MaxPriorityQueue<E> {
 
     public int elementCt() {
         return currentEntry - 1;
+    }
+
+    public boolean contains(T object) {
+        for(int i = 1; i < currentEntry; i++) {
+            if(entries[i].equals(object)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void percolateUp(int holePos) {
